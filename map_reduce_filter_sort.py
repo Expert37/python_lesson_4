@@ -20,10 +20,39 @@ list_2 = [4,5,6]
 list_3 = list(map(lambda x,y: x*y, list_1, list_2))
 print(list_3)
 
-    # reduce
+    # reduce - функция производит какую-то операцию со всеми элементами списка
 # сначала нужно сделать импорт функции reduce (начиная с питона 3)
 from functools import reduce
 
 # найдем с помощью функции reduce максимальный элемент
+list_temp = [41,3,46,8,10,100,1,102]
+max = reduce(lambda a,b: a if a>b else b,list_temp) # первый элемент это функция, второй элемент это массив (список)
+        # lambda: берем два элемента (a и b) из list_temp и сравниваем между собой. Если a>b, то оставляем элемент a и сравниваем со следующим. Иначе берем b. И т.д.
+        # таким образом reduce пройдет по всему листу и оставит максимальный элемент
+print(max)
+
+    # filter
+# отсортируем предыдущий список и найдем элементы, которые больше 50:
+list_4 = list(filter(lambda a: a>50,list_temp))
+print(list_4)
+
+    # sorted - это функция, которая на вход принимает список и возвращает список:
+list_temp_sort = sorted(list_temp)
+print(list_temp_sort)
+
+# попробуем сортировку в обратном порядке:
+list_temp_sort_reverse = sorted(list_temp, reverse=True)
+print(list_temp_sort_reverse)
+
+# сортировка по ключам
+list_name = ['Kate', 'Sergey', 'Sofia', 'Ivan', 'Nastya']
+list_name_sort = sorted(list_name)
+print(list_name_sort)   # упорядочено будет в алфавитном порядке
+
+# домустим мы хотим отсортировать данный список по 2-й букве:
+list_name_sort_key = sorted(list_name, key = lambda x: x[1])    # x[1] - буква с индексом 1 (т.е. вторая буква)
+print(list_name_sort_key)
+
+
 
 
