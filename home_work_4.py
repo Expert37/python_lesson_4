@@ -22,11 +22,12 @@ pop_name(sampling)
 print()
 
 print('3. Напишите функцию вывода самой редкой буквы, с которого начинаются имена в списке на выходе функции F.')
-def pop_name(sampling):
-    temp_dict = {i: sampling.count(i) for i in sampling}
-    a = list(temp_dict.items())
+def red_name(sampling):
+    first_letters = [i[0] for i in sampling]    # список из первых букв имен списка sampling
+    temp_dict = {i: first_letters.count(i) for i in first_letters}  # словарь (буква:количество)
+    a = list(temp_dict.items()) # приводим к формату list
     a.sort(key=lambda i: i[1])
     for i in a[0:1]:
         print(i[0], ':', i[1])
-pop_name(sampling)
+red_name(sampling)
 
