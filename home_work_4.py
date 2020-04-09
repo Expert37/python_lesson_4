@@ -12,15 +12,21 @@ print(len(sampling))
 print()
 
 print('2. Напишите функцию вывода самого частого имени из списка на выходе функции F;')
-print(max(set(sampling), key=lambda x: sampling.count(x)),':')
-'''
 def pop_name(sampling):
-    print(max(set(sampling), key=lambda x: sampling.count(x)))
-    return sampling
-print(list(max))
-'''
+    temp_dict = {i: sampling.count(i) for i in sampling}
+    a = list(temp_dict.items())
+    a.sort(key=lambda i: i[1], reverse=True)
+    for i in a[0:1]:
+        print(i[0], ':', i[1])
+pop_name(sampling)
+print()
 
-
-
-
+print('3. Напишите функцию вывода самой редкой буквы, с которого начинаются имена в списке на выходе функции F.')
+def pop_name(sampling):
+    temp_dict = {i: sampling.count(i) for i in sampling}
+    a = list(temp_dict.items())
+    a.sort(key=lambda i: i[1])
+    for i in a[0:1]:
+        print(i[0], ':', i[1])
+pop_name(sampling)
 
